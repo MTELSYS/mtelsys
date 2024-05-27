@@ -1,18 +1,29 @@
 <script>
-	import '$lib/scss/globals.scss'
+	import '../app.css';
+	import '$lib/scss/globals.scss';
 
-	import { Navbar, NavHamburger, NavUl, NavLi, NavBrand, Footer, FooterCopyright, FooterLinkGroup, FooterLink, FooterBrand, FooterIcon } from 'flowbite-svelte'
-  import { FacebookSolid, GithubSolid, DiscordSolid, InstagramSolid } from 'flowbite-svelte-icons';
-
+	import {
+		Navbar,
+		NavHamburger,
+		NavUl,
+		NavLi,
+		NavBrand,
+		Footer,
+		FooterCopyright,
+		FooterLinkGroup,
+		FooterLink,
+		FooterBrand,
+		FooterIcon
+	} from 'flowbite-svelte';
+	import { FacebookSolid, GithubSolid, DiscordSolid, InstagramSolid } from 'flowbite-svelte-icons';
 </script>
-
 
 <Navbar class="px-2 sm:px-4 py-2.5 relative w-full z-20 top-0 start-0 border-b">
 	<NavBrand href="/">
 		<img src="images/elsys-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Elsys Logo" />
 		<span class="self-center whitespace-nowrap text-xl font-semibold">MTELSYS</span>
 	</NavBrand>
-	<NavHamburger />
+	<NavHamburger></NavHamburger>
 	<NavUl>
 		<NavLi href="/" active={true}>Home</NavLi>
 		<NavLi href="/tools">Tools</NavLi>
@@ -20,9 +31,8 @@
 	</NavUl>
 </Navbar>
 
-
 <main>
-	<slot />
+	<slot></slot>
 </main>
 
 <Footer footerType="socialmedia">

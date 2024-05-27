@@ -1,16 +1,18 @@
 import type { Config } from 'tailwindcss';
 
-const config = {
-	content: ['./src/**/*.{html,js,svelte,ts}', './node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'],
-	darkMode: 'class',
+export default {
+	content: [
+		'./src/**/*.{html,js,svelte,ts}',
+		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
+	],
 
 	theme: {
 		extend: {
-      colors: {
-        // flowbite-svelte
-        primary: {
-          700: '#0f8592',
-        },
+			colors: {
+				// flowbite-svelte
+				primary: {
+					700: '#0f8592'
+				},
 				success: {
 					700: '#52d300'
 				},
@@ -23,12 +25,9 @@ const config = {
 				subtle: {
 					700: '#e5e9e2'
 				}
-      }
-    }
-
+			}
+		}
 	},
 
-	plugins: [require('flowbite/plugin')]
-} satisfies Config;
-
-export default config;
+	plugins: [require('@tailwindcss/typography')]
+} as Config;
