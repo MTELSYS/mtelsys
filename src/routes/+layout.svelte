@@ -35,7 +35,7 @@
 	<slot></slot>
 </main>
 
-<Footer footerType="socialmedia">
+<Footer class="absolute bottom-0 w-full" footerType="socialmedia">
   <div class="md:flex md:justify-between">
     <div class="mb-6 md:mb-0">
       <FooterBrand href="/" src="images/elsys-icon-logo.svg" alt="MTELSYS Logo" name="MTELSYS" />
