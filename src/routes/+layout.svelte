@@ -15,7 +15,7 @@
 		FooterBrand,
 		FooterIcon
 	} from 'flowbite-svelte';
-	import { FacebookSolid, GithubSolid, DiscordSolid, InstagramSolid } from 'flowbite-svelte-icons';
+	import { FacebookSolid, GithubSolid, InstagramSolid } from 'flowbite-svelte-icons';
 </script>
 
 <Navbar class="px-2 sm:px-4 py-2.5 relative w-full z-20 top-0 start-0 border-b">
@@ -73,3 +73,23 @@
     </div>
   </div>
 </Footer>
+
+<style global lang="scss">
+  h1, h2, h3, h4, h5, h6, p, span {
+    color: $black;
+  }
+
+  main {
+		padding-inline: 1rem;
+		margin-inline: auto;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		height: 100%;
+		padding-bottom: 500px;
+
+		@include desktop {
+			max-width: 960px;
+		}
+	}
+</style>
