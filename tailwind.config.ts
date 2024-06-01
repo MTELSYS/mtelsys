@@ -6,7 +6,7 @@ export default {
 		'./node_modules/flowbite-svelte/**/*.{html,js,svelte,ts}'
 	],
 
-	// darkMode: 'class',
+	darkMode: 'class',
 
 	theme: {
 		extend: {
@@ -29,8 +29,8 @@ export default {
 					DEFAULT: '#ffcb63'
 				},
 				subtle: {
-					700: '#e5e9e2',
-					DEFAULT: '#e5e9e2'
+					700: '#707070',
+					DEFAULT: '#707070'
 				},
 				black: {
 					DEFAULT: '#121212'
@@ -41,6 +41,6 @@ export default {
 
 	plugins: [
 		require('@tailwindcss/typography'), 
-		// require('flowbite/plugin')
+		require('flowbite/plugin')
 	]
 } as Config;
