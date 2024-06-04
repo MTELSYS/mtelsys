@@ -16,12 +16,6 @@
 		FooterIcon
 	} from 'flowbite-svelte';
 	import { FacebookSolid, GithubSolid, InstagramSolid } from 'flowbite-svelte-icons';
-	import type { LayoutData } from './$types';
-	import { organisationMembers, organisationRepos } from '../stores';
-
-  export let data: LayoutData;
-  organisationRepos.set(data.repos);
-  organisationMembers.set(data.members);
 </script>
 
 <Navbar class="px-2 sm:px-4 py-2.5 relative w-full z-20 top-0 start-0 border-b">
@@ -38,7 +32,7 @@
 </Navbar>
 
 <main>
-	<slot></slot>
+	<slot />
 </main>
 
 <Footer class="absolute bottom-0 w-full" footerType="socialmedia">
