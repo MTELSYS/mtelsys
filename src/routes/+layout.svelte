@@ -3,7 +3,7 @@
 	import '$lib/scss/globals.scss';
 
 	import {
-    Button,
+    GradientButton,
 		Navbar,
 		NavHamburger,
 		NavUl,
@@ -25,7 +25,7 @@
 		<span class="self-center whitespace-nowrap text-xl font-semibold">MTELSYS</span>
 	</NavBrand>
   <div class="flex md:order-2">
-    <Button href="/join" size="sm">Join the team</Button>
+    <GradientButton href="/join" color="greenToBlue" size="sm">Join the team</GradientButton>
     <NavHamburger />
   </div>
 	<NavUl class="order-1">

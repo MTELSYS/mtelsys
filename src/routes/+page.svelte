@@ -33,7 +33,7 @@
   <h1 class="text-black font-bold">Welcome Elsys students 👋</h1>
   <span class="text-black-300">An ensamble of tools created by students, for students</span>
   <div>
-    <GradientButton href="/tools" color="purpleToBlue" class="mt-12">
+    <GradientButton href="/tools" color="greenToBlue" class="mt-12">
       Go to the tools <ArrowRightOutline class="w-5 h-5 ms-2" />
     </GradientButton>
   </div>
@@ -77,10 +77,10 @@
   <h5 class="mb-2 text-xl md:text-3xl font-bold text-gray-900 dark:text-white">Contribute to the cause</h5>
   <p class="mb-5 text-base text-gray-500 text-sm md:text-md dark:text-gray-400">Share your tools to help other Elsys students get though your previous struggles.</p>
   <div class="justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-    <Button href="/join">
+    <GradientButton href="/join" color="greenToBlue">
       <GithubSolid class="w-6 h-6 me-2" />
       Join the team
-    </Button>
+    </GradientButton>
   </div>
 </Card>
 </section>
