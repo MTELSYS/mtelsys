@@ -31,7 +31,7 @@
 
 <section id="hero" class="w-full flex flex-col justify-center text-center">
   <h1 class="text-black font-bold">Welcome Elsys students 👋</h1>
-  <span class="text-subtle">An ensamble of tools created by students, for students</span>
+  <span class="text-black-300">An ensamble of tools created by students, for students</span>
   <div>
     <GradientButton href="/tools" color="purpleToBlue" class="mt-12">
       Go to the tools <ArrowRightOutline class="w-5 h-5 ms-2" />
@@ -45,8 +45,8 @@
     <Carousel images={images} duration={5000} let:Indicators let:Controls on:change={({ detail }) => (currentShownRepo = detail)}>
       <a slot="slide" href={images[index]?.link} target="_blank" let:Slide let:index>
         <Slide image={images[index]} />
-        <div id="carousel--card__title" class="absolute bottom-0 px-6 py-8 bg-gradient-to-t from-black to-none to-80% flex flex-col justify-end">
-          <h1 class="text-white">
+        <div id="carousel--card__overlay" class="absolute bottom-0 px-6 py-8 bg-gradient-to-t from-black-700 to-none to-100% flex flex-col justify-end">
+          <h1 id="carousel--card__title" class="text-white">
             {currentShownRepo?.title}
           </h1>
         </div>
@@ -98,10 +98,17 @@
     width: 100%;
     overflow: hidden;
 
-    &--card__title {
+    &--card__overlay {
       width: 100%;
       height: 100%;
       overflow: hidden;
+    }
+
+    &--card__title {
+      max-width: 60%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     @include desktop {
