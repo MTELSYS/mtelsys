@@ -77,9 +77,9 @@
   <h5 class="mb-2 text-xl md:text-3xl font-bold text-gray-900 dark:text-white">Contribute to the cause</h5>
   <p class="mb-5 text-base text-gray-500 text-sm md:text-md dark:text-gray-400">Share your tools to help other Elsys students get though your previous struggles.</p>
   <div class="justify-center items-center space-y-4 sm:flex sm:space-y-0 sm:space-x-4 rtl:space-x-reverse">
-    <Button>
+    <Button href="/join">
       <GithubSolid class="w-6 h-6 me-2" />
-      Add a project
+      Join the team
     </Button>
   </div>
 </Card>
