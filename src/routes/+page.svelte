@@ -7,12 +7,10 @@
 	export let data: LayoutData;
 
   const maximumReposInCarousel = 5
-  const parseReposToCarousel = (repo) => {
-    const excludedRepos = ['.github', 'mtelsys']
-    const withoutOrgRepos = repo.filter((repo: any) => !excludedRepos.includes(repo.name))
-    const limitedRepos = withoutOrgRepos.slice(0, maximumReposInCarousel)
+  const parseReposToCarousel = (repositories: any) => {
+    const limitedRepos = repositories.slice(0, maximumReposInCarousel)
 
-    const parseEntry = (repo) => {
+    const parseEntry = (repo: any) => {
       const { name, html_url } = repo
       const entry = {
         title: name,

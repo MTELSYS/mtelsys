@@ -9,8 +9,13 @@ export const load: LayoutServerLoad = async ({ locals }) => {
     octokit.request('GET /orgs/MTELSYS/members'),
   ])
 
-  const repos = repoReq.status === 200 ? repoReq.data : []
   const members = memberReq.status === 200 ? memberReq.data : []
+
+  let repos = [];
+  const excludedRepos = ['mtelsys', '.github']
+  if (repoReq.status === 200) {
+    repos = repoReq.data.filter((repo: { name: string; }) => !excludedRepos.includes(repo.name))
+  }
 
   return {
     repos,
