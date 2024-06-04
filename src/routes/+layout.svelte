@@ -3,6 +3,7 @@
 	import '$lib/scss/globals.scss';
 
 	import {
+    Button,
 		Navbar,
 		NavHamburger,
 		NavUl,
@@ -23,8 +24,11 @@
 		<img src="images/elsys-icon-logo.svg" class="me-3 h-6 sm:h-9" alt="Elsys Logo" />
 		<span class="self-center whitespace-nowrap text-xl font-semibold">MTELSYS</span>
 	</NavBrand>
-	<NavHamburger></NavHamburger>
-	<NavUl>
+  <div class="flex md:order-2">
+    <Button href="/join" size="sm">Join the team</Button>
+    <NavHamburger />
+  </div>
+	<NavUl class="order-1">
 		<NavLi href="/" active={true}>Home</NavLi>
 		<NavLi href="/tools">Tools</NavLi>
 		<NavLi href="/about">About</NavLi>
