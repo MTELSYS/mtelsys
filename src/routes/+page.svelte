@@ -31,7 +31,7 @@
 
 <section id="hero" class="w-full flex flex-col justify-center text-center">
   <h1 class="text-black font-bold">Welcome Elsys students 👋</h1>
-  <span class="text-black-300">An ensamble of tools created by students, for students</span>
+  <span class="text-black-300">To an ensamble of tools created by students, for students</span>
   <div>
     <GradientButton href="/tools" color="greenToBlue" class="mt-12">
       Go to the tools <ArrowRightOutline class="w-5 h-5 ms-2" />
