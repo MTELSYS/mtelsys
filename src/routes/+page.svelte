@@ -29,7 +29,7 @@
   const avatarStackLimit = 4
 </script>
 
-<section id="hero" class="w-full flex flex-col justify-center text-center gap-5 lg:gap-y-8">
+<section id="hero" class="w-full flex flex-col justify-center text-center gap-y-5 lg:gap-y-8">
   <h1 id="hero--title" class="text-black font-bold">Welcome Elsys students 👋</h1>
   <span id="hero--subtitle" class="text-black-300">To an ensamble of tools created by students, for students</span>
   <div>
