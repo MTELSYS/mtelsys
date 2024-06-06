@@ -13,6 +13,11 @@ html {
 
 h1 {
   font-size: 28px;
+
+  @include desktop {
+    font-size: 64px;
+    line-height: 80px;
+  }
 }
 
 h2 {

@@ -29,11 +29,11 @@
   const avatarStackLimit = 4
 </script>
 
-<section id="hero" class="w-full flex flex-col justify-center text-center">
-  <h1 class="text-black font-bold">Welcome Elsys students 👋</h1>
-  <span class="text-black-300">To an ensamble of tools created by students, for students</span>
+<section id="hero" class="w-full flex flex-col justify-center text-center gap-5 lg:gap-y-8">
+  <h1 id="hero--title" class="text-black font-bold">Welcome Elsys students 👋</h1>
+  <span id="hero--subtitle" class="text-black-300">To an ensamble of tools created by students, for students</span>
   <div>
-    <GradientButton href="/tools" color="greenToBlue" class="mt-12">
+    <GradientButton href="/tools" color="greenToBlue">
       Go to the tools <ArrowRightOutline class="w-5 h-5 ms-2" />
     </GradientButton>
   </div>
@@ -46,9 +46,9 @@
       <a slot="slide" href={images[index]?.link} target="_blank" let:Slide let:index>
         <Slide image={images[index]} />
         <div id="carousel--card__overlay" class="absolute bottom-0 px-6 py-8 bg-gradient-to-t from-black-700 to-none to-100% flex flex-col justify-end">
-          <h1 id="carousel--card__title" class="text-white">
+          <span id="carousel--card__title" class="text-white text-3xl">
             {currentShownRepo?.title}
-          </h1>
+          </span>
         </div>
       </a>
       <Indicators class="z-50"/>
@@ -89,8 +89,13 @@
   #hero {
     height: 50vh;
 
+    &--subtitle {
+      font-size: 20px;
+      line-height: 28px;
+    }
+
     @include desktop {
-      height: 560px;
+      height: 750px;
     }
   }
 
