@@ -40,13 +40,13 @@
 </section>
 
 <section id="carousel" class="w-full flex flex-col gap-4 my-8 rounded-lg">
-  <h2 class="font-semibold text-center">Popular tools</h2>
+  <h3 class="font-semibold text-center">Popular tools</h3>
   <div class="w-full relative">
     <Carousel images={images} duration={5000} let:Indicators let:Controls on:change={({ detail }) => (currentShownRepo = detail)}>
       <a slot="slide" href={images[index]?.link} target="_blank" let:Slide let:index>
         <Slide image={images[index]} />
         <div id="carousel--card__overlay" class="absolute bottom-0 px-6 py-8 bg-gradient-to-t from-black-700 to-none to-100% flex flex-col justify-end">
-          <span id="carousel--card__title" class="text-white text-3xl">
+          <span id="carousel--card__title" class="text-white text-xl md:text-3xl">
             {currentShownRepo?.title}
           </span>
         </div>
@@ -58,7 +58,7 @@
 </section>
 
 <section id="contributions" class="w-full flex flex-col gap-4 my-8 text-center">
-  <h2 class="font-semibold">Contributors</h2>
+  <h3 class="font-semibold">Contributors</h3>
   <div class="flex justify-center">
     {#each data.members as { avatar_url }, i}
       {#if i < avatarStackLimit}
@@ -90,8 +90,10 @@
     height: 50vh;
 
     &--subtitle {
-      font-size: 20px;
-      line-height: 28px;
+      @include desktop {
+        font-size: 20px;
+        line-height: 28px;
+      }
     }
 
     @include desktop {
