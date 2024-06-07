@@ -1,6 +1,9 @@
 <script lang="ts">
-  import { GradientButton, Input, Label } from 'flowbite-svelte';
-  import { EnvelopeSolid } from 'flowbite-svelte-icons';
+  import { GradientButton, Input, Label,  Spinner } from 'flowbite-svelte';
+  import { EnvelopeSolid, PaperPlaneSolid, UserSolid } from 'flowbite-svelte-icons';
+
+  import { enhance } from '$app/forms'
+  let loading: boolean = false
 </script>
 
 
@@ -10,18 +13,32 @@
 </section>
 
 <section id="form">
-  <form method="POST">
-    <Label for="username" class="block mb-2">GitHub username</Label>
+  <form method="POST" class="flex flex-col" on:submit={() => loading = true} use:enhance={({formData, action}) => {
+    return async ({ result }) => {
+      console.log('result here', result)
+      if (result.type === 'success') {
+        loading = false
+      }
+    }
+  }}>
+    <Label for="username" class="block mb-2">GitHub Username</Label>
     <Input required id="username" name="username" type="text" placeholder="olanordmann">
-      <EnvelopeSolid slot="left" class="w-5 h-5 text-gray-400 dark:text-gray-400" />
+      <UserSolid slot="left" class="w-5 h-5 text-gray-400 dark:text-gray-400" />
     </Input>
 
-    <Label for="email" class="block mb-2">GitHub Email</Label>
+    <Label for="email" class="block mb-2 mt-6">GitHub Email</Label>
     <Input required id="email" name="email" type="email" placeholder="kari@nordmann.no">
       <EnvelopeSolid slot="left" class="w-5 h-5 text-gray-400 dark:text-gray-400" />
     </Input>
 
-    <GradientButton>Request invite</GradientButton>
+    <GradientButton class="mt-6" color="greenToBlue" type="submit">
+      {#if loading}
+        <Spinner class="me-3" size={5}/>
+      {:else}
+        <PaperPlaneSolid class="me-3"/>
+      {/if}
+      Request Invite
+    </GradientButton>
   </form>
 </section>
 
