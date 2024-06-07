@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Avatar, Button, Card, Carousel, GradientButton } from 'flowbite-svelte'
+  import { Avatar, Card, Carousel, GradientButton } from 'flowbite-svelte'
 	import { ArrowRightOutline, GithubSolid } from 'flowbite-svelte-icons'
   import type { LayoutData } from './$types';
 	import type { HTMLImgAttributes } from 'svelte/elements';
@@ -11,10 +11,10 @@
     const limitedRepos = repositories.slice(0, maximumReposInCarousel)
 
     const parseEntry = (repo: any) => {
-      const { name, html_url } = repo
+      const { name, homepage, html_url } = repo
       const entry = {
         title: name,
-        link: html_url,
+        link: homepage ?? html_url,
         src: '/images/elsys-icon-logo.svg',
       }
 
