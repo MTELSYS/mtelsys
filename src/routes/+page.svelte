@@ -67,7 +67,7 @@
     {/each}
 
     {#if data.members.length > avatarStackLimit}
-      <Avatar stacked href="/" class="bg-gray-700 text-white hover:bg-gray-600 text-sm">+{data.members.length - avatarStackLimit}</Avatar>
+      <Avatar stacked class="bg-gray-700 text-white hover:bg-gray-600 text-sm">+{data.members.length - avatarStackLimit}</Avatar>
     {/if}
   </div>
 </section>

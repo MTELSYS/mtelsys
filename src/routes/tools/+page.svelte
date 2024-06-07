@@ -19,12 +19,14 @@
 
 <section id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
   {#each data.repos as repo}
-    <Card href={repo.homepage ?? repo.html_url}>
-      <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{repo.name}</h5>
-      <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'No description available'}</p>
+    <Card href={repo.homepage ?? repo.html_url} class="flex justify-between">
+      <div>
+        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{repo.name}</h5>
+        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>
+      </div>
       
       {#await getContributors(repo) then contributors}
-        <div class="flex justify-start mx-2 mt-5">
+        <div id="avatars" class="flex justify-start mx-2 mt-4">
           {#each contributors as { avatar_url }, i}
             {#if i < avatarStackLimit}
               <Avatar src={avatar_url} stacked />
@@ -32,11 +34,11 @@
           {/each}
 
           {#if contributors.length > avatarStackLimit}
-            <Avatar stacked href="/" class="bg-gray-700 text-white hover:bg-gray-600 text-sm">+{data.members.length - avatarStackLimit}</Avatar>
+            <Avatar stacked class="bg-gray-700 text-white hover:bg-gray-600 text-sm">+{data.members.length - avatarStackLimit}</Avatar>
           {/if}
         </div>
       {:catch error}
-        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">Contributors</p>
+        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">Failed to fetch contributors</p>
       {/await}
     </Card>
   {/each}
@@ -53,5 +55,4 @@
       }
     }
   }
-
 </style>
