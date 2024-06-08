@@ -1,15 +1,16 @@
 <script lang="ts">
-  import { Avatar, Card } from 'flowbite-svelte'
+  import { Avatar, Button, Card, Popover } from 'flowbite-svelte'
 	import type { LayoutData } from '../$types';
   export let data: LayoutData;
 
+  // TODO: Refactor to use octokit instead of fetch
   async function getContributors(repo: any) {
     const response = await fetch(repo.contributors_url)
     const contributors = await response.json()
-
+    
     return contributors
   }
-  
+
   const avatarStackLimit = 4
 </script>
 
@@ -17,7 +18,7 @@
   <h2 class="text-black font-bold">Toolset</h2>
 </section>
 
-<section id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+<section id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
   {#each data.repos as repo}
     <Card href={!!repo.homepage ? repo.homepage : repo.html_url} class="flex justify-between">
       <div>
@@ -25,11 +26,27 @@
         <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>
       </div>
       
-      {#await getContributors(repo) then contributors}
+      {#await getContributors(repo)}
+        <span>Loading contributors</span>
+      {:then contributors}
         <div id="avatars" class="flex justify-start mx-2 mt-4">
-          {#each contributors as { avatar_url }, i}
+          {#each contributors as { avatar_url, html_url, login }, i}
             {#if i < avatarStackLimit}
-              <Avatar src={avatar_url} stacked />
+              <Avatar id={"user" + i} src={avatar_url} stacked />
+              <Popover triggeredBy={"#user" + i} class="w-64 text-sm font-light text-gray-500 bg-white dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
+                <div class="p-3">
+                  <div class="flex justify-between items-center mb-2">
+                    <Avatar src={avatar_url} alt={login} />
+                    <Button href={html_url} size="xs">View Profile</Button>
+                  </div>
+                  <div class="text-base font-semibold leading-none text-gray-900 dark:text-white">
+                    <a href="/">{login}</a>
+                  </div>
+                  <div class="mb-3 text-sm font-normal">
+                    <a href={html_url} class="hover:underline">@{login}</a>
+                  </div>
+                </div>
+              </Popover>
             {/if}
           {/each}
 
