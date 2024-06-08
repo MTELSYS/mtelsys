@@ -58,4 +58,10 @@ h5 {
 
 p, span {
   font-size: 14px;
+
+
+  @include desktop {
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
