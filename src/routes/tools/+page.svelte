@@ -19,7 +19,7 @@
 
 <section id="grid" class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
   {#each data.repos as repo}
-    <Card href={repo.homepage ?? repo.html_url} class="flex justify-between">
+    <Card href={!!repo.homepage ? repo.homepage : repo.html_url} class="flex justify-between">
       <div>
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{repo.name}</h5>
         <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>

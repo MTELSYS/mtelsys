@@ -14,7 +14,7 @@
       const { name, homepage, html_url } = repo
       const entry = {
         title: name,
-        link: homepage ?? html_url,
+        link: !!homepage ? homepage : html_url,
         src: '/images/elsys-icon-logo.svg',
       }
 
