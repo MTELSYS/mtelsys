@@ -4,13 +4,14 @@
   export let data: LayoutData;
 
   // TODO: Refactor to use octokit instead of fetch
-  async function getContributors(repo: any) {
-    const response = await fetch(repo.contributors_url)
-    const contributors = await response.json()
+  // async function getContributors(repo: any) {
+  //   const response = await fetch(repo.contributors_url)
+  //   const contributors = await response.json()
     
-    return contributors
-  }
+  //   return contributors
+  // }
 
+  // console.log(data.repos.contributors)
   const avatarStackLimit = 4
 </script>
 
@@ -26,7 +27,7 @@
         <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>
       </div>
       
-      {#await getContributors(repo)}
+      <!-- {#await getContributors(repo)}
         <span>Loading contributors</span>
       {:then contributors}
         <div id="avatars" class="flex justify-start mx-2 mt-4">
@@ -56,7 +57,7 @@
         </div>
       {:catch error}
         <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">Failed to fetch contributors</p>
-      {/await}
+      {/await} -->
     </Card>
   {/each}
 </section>

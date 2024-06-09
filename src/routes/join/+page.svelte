@@ -15,7 +15,6 @@
 <section id="form">
   <form method="POST" class="flex flex-col" on:submit={() => loading = true} use:enhance={({formData, action}) => {
     return async ({ result }) => {
-      console.log('result here', result)
       if (result.type === 'success') {
         loading = false
       }
