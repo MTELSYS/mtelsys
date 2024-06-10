@@ -28,7 +28,7 @@
     <GradientButton href="/join" color="greenToBlue" size="sm">Join the team</GradientButton>
     <NavHamburger />
   </div>
-	<NavUl class="order-1">
+	<NavUl class="order-1 background-none">
 		<NavLi href="/" active={true}>Home</NavLi>
 		<NavLi href="/tools">Tools</NavLi>
 		<NavLi href="/about">About</NavLi>
