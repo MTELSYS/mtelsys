@@ -1,10 +1,29 @@
 <script lang="ts">
-  import { Avatar, Button, Card, Popover } from 'flowbite-svelte'
+  import { Avatar, Badge, Button, Card, Popover } from 'flowbite-svelte'
 	import type { LayoutData } from '../$types';
   export let data: LayoutData;
 
   const avatarStackLimit = 4
-</script>
+
+  let isDown = false
+  let topicsContainer: HTMLDivElement
+  let startX: number
+  let scrollLeft: number
+
+  const handleMouseDown = (event: MouseEvent) => {
+    isDown = true
+    startX = event.pageX - topicsContainer.offsetLeft
+    scrollLeft = topicsContainer.scrollLeft
+  }
+
+  const handleMouseMove = (event: MouseEvent) => {
+    if (!isDown) return
+    const x = event.pageX - topicsContainer.offsetLeft
+    const walk = (x - startX) * 3
+    topicsContainer.scrollLeft = scrollLeft - walk
+    console.log(walk)
+  } 
+  </script>
 
 <section id="header" class="w-full flex flex-col justify-center text-center gap-y-1 md:gap-y-4">
   <h2 class="text-black font-bold">Toolset</h2>
@@ -15,11 +34,19 @@
     <Card href={!!repo.homepage ? repo.homepage : repo.html_url} class="flex justify-between">
       <div>
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{repo.name}</h5>
-        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>
+        <p class="font-normal lg:text-sm text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>
+        
+        <div id="topics" class="w-full mt-2">
+          {#each repo.topics.slice(0, 3) as topic}
+            <Badge color="blue" border rounded class="px-2.5 py-0.5 inline-block me-1.5">
+                {topic}
+            </Badge>
+          {/each}
+        </div>
       </div>
       
       {#if !!repo.contributors}
-        <div id="avatars" class="flex justify-start mx-2 mt-4">
+        <div id="avatars" class="flex justify-start mx-2 mt-3">
           {#each repo.contributors as { avatar_url, html_url, login }, i}
             {#if i < avatarStackLimit}
               <Avatar id={"user" + i} src={avatar_url} stacked />
@@ -61,5 +88,10 @@
         line-height: 28px;
       }
     }
+  }
+
+  #topics::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; /* make scrollbar transparent */
   }
 </style>
