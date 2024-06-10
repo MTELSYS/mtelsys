@@ -3,15 +3,6 @@
 	import type { LayoutData } from '../$types';
   export let data: LayoutData;
 
-  // TODO: Refactor to use octokit instead of fetch
-  // async function getContributors(repo: any) {
-  //   const response = await fetch(repo.contributors_url)
-  //   const contributors = await response.json()
-    
-  //   return contributors
-  // }
-
-  // console.log(data.repos.contributors)
   const avatarStackLimit = 4
 </script>
 
@@ -27,11 +18,9 @@
         <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">{repo.description ?? 'Missing description'}</p>
       </div>
       
-      <!-- {#await getContributors(repo)}
-        <span>Loading contributors</span>
-      {:then contributors}
+      {#if !!repo.contributors}
         <div id="avatars" class="flex justify-start mx-2 mt-4">
-          {#each contributors as { avatar_url, html_url, login }, i}
+          {#each repo.contributors as { avatar_url, html_url, login }, i}
             {#if i < avatarStackLimit}
               <Avatar id={"user" + i} src={avatar_url} stacked />
               <Popover triggeredBy={"#user" + i} class="w-64 text-sm font-light text-gray-500 bg-white dark:text-gray-400 dark:border-gray-600 dark:bg-gray-800">
@@ -51,13 +40,13 @@
             {/if}
           {/each}
 
-          {#if contributors.length > avatarStackLimit}
+          {#if repo.contributors.length > avatarStackLimit}
             <Avatar stacked class="bg-gray-700 text-white hover:bg-gray-600 text-sm">+{data.members.length - avatarStackLimit}</Avatar>
           {/if}
         </div>
-      {:catch error}
-        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">Failed to fetch contributors</p>
-      {/await} -->
+      {:else}
+        <p class="font-normal text-gray-700 dark:text-gray-400 leading-tight">No contributors</p>
+      {/if}
     </Card>
   {/each}
 </section>
