@@ -5,7 +5,7 @@
 <article class="flex flex-col gap-12">
   <section class="gap-x-12 gap-y-5">
     <img src="/images/electronics.jpg" alt="Elsys logo" class="hidden md:block object-contain" />
-    <h3 class="font-bold text-black">The toolset</h3>
+    <h3 class="font-bold text-black text-center md:text-left">The toolset</h3>
     <span>
       Studying electrical engineering is by no means easy, that is at least the experience of many student at MTELSYS.
       However, there are certain tools one can utilise to make these courses a little less painful, and a little more fun.
@@ -15,7 +15,7 @@
 
   <section class="gap-x-12 gap-y-5">
     <img src="/images/elsys-icon-logo.svg" alt="Elsys logo" class="hidden md:block object-contain" />
-    <h3 class="font-bold text-black">MTELSYS</h3>
+    <h3 class="font-bold text-black text-center md:text-left">MTELSYS</h3>
     <span>
       MTELSYS &mdash; formally known as Electronics Systems Design and Innovation &mdash; is a five-year integrated masters programme at NTNU, Trondheim.
       Completing the degree grants you the protected title of "Sivilingeniør" in Norway, and is a highly sought after degree in the industry.
