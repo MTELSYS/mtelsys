@@ -3,26 +3,7 @@
 	import type { LayoutData } from '../$types';
   export let data: LayoutData;
 
-  const avatarStackLimit = 4
-
-  let isDown = false
-  let topicsContainer: HTMLDivElement
-  let startX: number
-  let scrollLeft: number
-
-  const handleMouseDown = (event: MouseEvent) => {
-    isDown = true
-    startX = event.pageX - topicsContainer.offsetLeft
-    scrollLeft = topicsContainer.scrollLeft
-  }
-
-  const handleMouseMove = (event: MouseEvent) => {
-    if (!isDown) return
-    const x = event.pageX - topicsContainer.offsetLeft
-    const walk = (x - startX) * 3
-    topicsContainer.scrollLeft = scrollLeft - walk
-    console.log(walk)
-  } 
+  const avatarStackLimit = 8
   </script>
 
 <section id="header" class="w-full flex flex-col justify-center text-center gap-y-1 md:gap-y-4">
