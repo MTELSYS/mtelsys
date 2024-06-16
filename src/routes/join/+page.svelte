@@ -78,7 +78,7 @@
 			<span class="sr-only">Check icon</span>
 		</svelte:fragment>
 		Application sent
-		<span class="ml-1 text-black-100">(Closing in {toastTimeOutSeconds}s)</span>
+		<span class="ml-1 text-black-100 text-base">(Closing in {toastTimeOutSeconds}s)</span>
 	</Toast>
 {:else if showToast && toastType === 'error'}
 	<Toast dismissable={false} color="red" class="fixed bottom-5 right-5 z-10">
@@ -87,7 +87,7 @@
 			<span class="sr-only">Error icon</span>
 		</svelte:fragment>
 		Non-existing user
-		<span class="ml-1 text-black-100">(Closing in {toastTimeOutSeconds}s)</span>
+		<span class="ml-1 text-black-100 text-base">(Closing in {toastTimeOutSeconds}s)</span>
 	</Toast>
 {/if}
 
